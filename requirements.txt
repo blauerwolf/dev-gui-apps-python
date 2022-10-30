@@ -1,1 +1,4 @@
 pysimplegui
+sqlalchemy
+sqlalchemy.orm
+sqlalchemy.utils
