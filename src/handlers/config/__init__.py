@@ -78,4 +78,3 @@ def get_database():
 db = get_database()
 session = get_session()
 Base = declarative_base()
-#Base.query = db.session.query_property()
