@@ -31,8 +31,6 @@ class Usuario(Base):
 
     def disable_user(self):
         self.activo = False
-        #session.query(self).update({ self.activo: False})
-        #session.query(Usuario).filter_by(username=username).first().update({ activo: False})
         session.commit()
 
     def enable_user(self):

@@ -1,9 +1,11 @@
 import PySimpleGUI as sg
-
+from os.path import join, dirname, abspath
 
 def build():
     sg.theme('LightBlue3')
-    imagen_centrada = [ sg.Image(filename='../static/g16989.png', size=(128, 128)) ]
+
+    img_path = "src/static/g16989.png"
+    imagen_centrada = [ sg.Image(filename=img_path, size=(128, 128)) ]
     botones_centrados = [ [sg.Button('Iniciar Sesion', key='login'), sg.Button('Cancelar', key='close')] ]
 			
     layout = [
