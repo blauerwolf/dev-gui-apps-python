@@ -19,6 +19,7 @@ def build():
 
     return window
 
+"""
 imagen_centrada = [ sg.Image(filename='../static/g16989.png', size=(128, 128)) ]
 botones_centrados = [ [sg.Button('Iniciar Sesion', key='login'), sg.Button('Cancelar', key='close')] ]
 			
@@ -40,3 +41,4 @@ while True:
         break
     elif (event=='login'):
         iniciar_sesion(values['user'], values['password'])
+"""
