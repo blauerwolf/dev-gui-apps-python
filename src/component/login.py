@@ -22,8 +22,14 @@ def loop():
 
         if event in (sg.WINDOW_CLOSED, "Exit", "-exit-", "Salir"):
             break
+        elif event == sg.WIN_CLOSED or event == 'close':
+            print("cierra")
+            break
         elif event == '-PANTALLA_PRINCIPAL-':
             print("hola")
+            break
+        elif event=='login':
+            iniciar_sesion('usuario1','1234')
 
     return window
     #window["-TABLA_EXPEDIENTE-"].update(ingresar_expediente
