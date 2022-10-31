@@ -8,6 +8,7 @@ def start():
     window = loop()
     window.close()
 
+    
 def loop():
     """
     Loop de la ventana
@@ -15,6 +16,16 @@ def loop():
 
     sg.theme('LightBlue3')
     window = login.build()
+
+    while True:
+        event, values = window.read()
+
+        if event in (sg.WINDOW_CLOSED, "Exit", "-exit-", "Salir"):
+            break
+        elif event == '-PANTALLA_PRINCIPAL-':
+            print("hola")
+
+    return window
     #window["-TABLA_EXPEDIENTE-"].update(ingresar_expediente
 
 
