@@ -28,7 +28,7 @@ def build():
                       font=(font.font_name, 11)),
                 sg.Button("Editar ticket", key='-EDITAR-TICKET-', tooltip='Editar un ticket ya cargado.', font=(font.font_name, 11))
         ]],
-        [sg.Table(values=[["-", "-", "-", "-", "-", "-"]], key="-TABLA_EXPEDIENTE-",
+        [sg.Table(values=[["-", "-", "-", "-", "-", "-"]], key="-TABLA_TICKETS-",
                   justification="c",
                   headings=[" ID ", "     Descripcion     ", "   Contacto   ", " Usuario ", " Estado "],
                   row_height=20, num_rows=10, header_background_color="#FF8000", right_click_menu=[[],["Eliminar seleccion"]])],

@@ -1,5 +1,7 @@
 import PySimpleGUI as sg
 from src.windows import pantalla_principal
+from src.component import ingresar_ticket
+from src.handlers.models import ticket
 #from src.component import ingresar_expediente
 #from src.handlers import ingresar_expediente_handler
 
@@ -19,7 +21,7 @@ def loop():
     sg.theme('SystemDefault')
 
     window = pantalla_principal.build()
-    #window["-TABLA_EXPEDIENTE-"].update(ingresar_expediente_handler.leer_archivo())
+    #window["-TABLA_TICKETS-"].update(ingresar_expediente_handler.leer_archivo())
 
     while True:
         event, values = window.read()
@@ -27,10 +29,13 @@ def loop():
         if event in (sg.WINDOW_CLOSED, "Exit", "-exit-", "Salir"):
             break
 
-        elif event == '-INGRESAR_EXPEDIENTE-':
-            print("hola")
-            #ingresar_expediente.start()
+        elif event == '-INGRESAR_TICKET-':
+            ingresar_ticket.start()
             #window["-TABLA_EXPEDIENTE-"].update(ingresar_expediente_handler.leer_archivo())
+
+        elif event == '-EDITAR-TICKET-':
+            print("editar ticket")
+            #editar_ticket.start()
 
     return window
 
