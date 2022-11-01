@@ -34,11 +34,19 @@ class Ticket(Base):
 def create():
     Base.metadata.create_all(db)
 
-def leer_tickeets():
+def leer_tickets():
     print("tickets")
+    tickets = []
+    t = session.query(Ticket).filter_by(Ticket.deleted != None).all()
+    for row in t:
+        print("row")
 
-def crear_ticket():
+def crear_ticket(ticket):
     print("Nuevo ticket")
+    tk = Ticket.create(ticket.descripcion,
+                        ticket.contacto,
+                        ticket.estado,
+                        ticket.usuario_id)
 
 def actualizar_estado():
     print("Actualizar estado")
