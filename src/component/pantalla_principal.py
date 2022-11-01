@@ -31,7 +31,7 @@ def loop():
         elif event == '-INGRESAR_TICKET-':
             ingresar_ticket.start()
             window["-TABLA_TICKETS-"].update(ticket.leer_tickets())
-             
+  
         elif event == 'Eliminar seleccion' and window['-TABLA_TICKETS-'].get():
             if values["-TABLA_TICKETS-"]:
 
