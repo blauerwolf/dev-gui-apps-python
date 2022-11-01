@@ -75,6 +75,7 @@ def get_database():
 
     return engine
 
+
 db = get_database()
 session = get_session()
 Base = declarative_base()
