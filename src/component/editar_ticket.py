@@ -1,23 +1,24 @@
 import PySimpleGUI as sg
 from src.windows import ingresar_ticket
+from src.windows import editar_ticket
 from src.handlers.models import ticket
 
 
-def start():
+def start(ticket_id):
     """
     Lanza la ejecución de la ventana
     """
-    window = loop()
+    window = loop(ticket_id)
     window.close()
 
 
-def loop():
+def loop(ticket_id):
     """
     Loop de la ventana de menú que capta los eventos al apretar las opciones
     """
     
 
-    window = ingresar_ticket.build()
+    window = editar_ticket.build(ticket_id)
 
     while True:
         event, values = window.read()
@@ -26,7 +27,8 @@ def loop():
             break
 
         elif event == '-GUARDAR-':
-            print("hola")
+            print(values)
+            ticket.actualizar_ticket(values)
             #ingresar_expediente_handler.agregar_expediente(values)
             break
 

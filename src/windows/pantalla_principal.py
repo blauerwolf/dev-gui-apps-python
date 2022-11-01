@@ -23,18 +23,17 @@ def build():
         [sg.Text(f'Incidentes', font=(font.font_name, 16), size=(30, 1))],
         [sg.HorizontalSeparator()],
         [sg.Text("Elija alguna opción del menu superior.")],
-        [[
-                sg.Button("Cargar ticket", key='-INGRESAR_TICKET-', tooltip='Permite cargar un nuevo ticket de un cliente',
+        [sg.Button("Cargar ticket", key='-INGRESAR_TICKET-', tooltip='Permite cargar un nuevo ticket de un cliente',
                       font=(font.font_name, 11)),
-                sg.Button("Editar ticket", key='-EDITAR-TICKET-', tooltip='Editar un ticket ya cargado.', font=(font.font_name, 11))
-        ]],
-        [sg.Table(values=[["-", "-", "-", "-", "-", "-"]], key="-TABLA_TICKETS-",
+        ],
+        [sg.Table(values=[["-", "-", "-", "-", "-"]], key="-TABLA_TICKETS-",
                   justification="c",
+                  #cols_justification=['c', 'l', 'c', 'c', 'c'],
                   headings=[" ID ", "     Descripcion     ", "   Contacto   ", " Usuario ", " Estado "],
-                  row_height=20, num_rows=10, header_background_color="#FF8000", right_click_menu=[[],["Eliminar seleccion"]])],
+                  row_height=20, num_rows=10, header_background_color="#FF8000", right_click_menu=[[],["Editar ticket", "Eliminar seleccion"]])],
         [sg.Text("""Seleccionar un elemento de la tabla y dar click derecho permite generar eventos especiales que permitiría
 por ejemplo eliminar un expediente. VER EL MENSAJE DE LA CONSOLA PARA MAS INFORMACIÓN.""")]
     ]
-    window = sg.Window('Sistema Integral v2.0', layout=layout, resizable=True, finalize=True)
+    window = sg.Window('Sistema Integral v3.5', layout=layout, resizable=True, finalize=True)
 
     return window

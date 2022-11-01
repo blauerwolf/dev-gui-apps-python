@@ -2,7 +2,7 @@ import PySimpleGUI as sg
 from src.const.font import font_name, font_size
 
 
-sg.theme('SystemDefault')
+sg.theme('LightBlue3')
 
 def build():
 
@@ -11,7 +11,6 @@ def build():
     layout = [
         [sg.Text('Cargar incidente',font=(font_name,16))],
         [sg.HorizontalSeparator()],
-        [sg.Text('id', size=(15,1)), sg.Spin(list(range(99999)), size=(10, 1), key="-ID-")],
         [sg.Text('Descripción', size=(15,1)), sg.Input(size=(30,1),key='-DESCRIPCION-')],
         [sg.Text('Contacto', size=(15,1)), sg.Input(size=(30,1),key='-CONTACTO-')],
         [sg.Text('Usuario', size=(15,1)), sg.Input(size=(30,1),key='-USUARIO-')],

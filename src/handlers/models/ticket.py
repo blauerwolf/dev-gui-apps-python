@@ -37,7 +37,7 @@ class Ticket(Base):
         session.commit()
         
     @classmethod
-    def buscar(cls):
+    def buscar_todos(cls):
         return session.query(cls).filter_by(deleted=None).all()
         
 
@@ -48,11 +48,15 @@ def create():
 def leer_tickets():
     tks = []
     
-    t = Ticket.buscar()
+    t = Ticket.buscar_todos()
 
     for row in t:
         tks.append([row.id, row.descripcion, row.contacto, row.usuario_id, row.estado])
     return tks
+    
+def buscar(ticket_id):
+    return session.query(Ticket).filter_by(id=ticket_id).first()
+    
 
 def crear_ticket(ticket):
 
@@ -69,7 +73,11 @@ def eliminar_ticket(id):
 def actualizar_estado():
     print("Actualizar estado")
 
-def actualizar_ticket():
-    print("Actualizar ticket")
+def actualizar_ticket(ticket):
+    t = session.query(Ticket).filter_by(id=ticket['-ID-']).first()
+    t.actualizar_ticket(descripcion=ticket['-DESCRIPCION-'],
+                        contacto=ticket['-CONTACTO-'],
+                        estado=ticket['-ESTADO-'])
+
 
 create()
