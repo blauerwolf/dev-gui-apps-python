@@ -20,7 +20,7 @@ def build():
 
     layout = [
         [sg.Menu(menu_def)],
-        [sg.Text(f'Incidentes {date.today().strftime("%d/%m/%Y")}', font=(font.font_name, 16), size=(30, 1))],
+        [sg.Text(f'Incidentes', font=(font.font_name, 16), size=(30, 1))],
         [sg.HorizontalSeparator()],
         [sg.Text("Elija alguna opción del menu superior.")],
         [[

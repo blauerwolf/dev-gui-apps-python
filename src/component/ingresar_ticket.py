@@ -26,8 +26,7 @@ def loop():
             break
 
         elif event == '-GUARDAR-':
-            print("hola")
-            #ingresar_expediente_handler.agregar_expediente(values)
+            tk_id = ticket.crear_ticket(values)
             break
 
     return window

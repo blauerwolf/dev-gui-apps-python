@@ -21,7 +21,7 @@ def loop():
     sg.theme('SystemDefault')
 
     window = pantalla_principal.build()
-    #window["-TABLA_TICKETS-"].update(ingresar_expediente_handler.leer_archivo())
+    window["-TABLA_TICKETS-"].update(ticket.leer_tickets())
 
     while True:
         event, values = window.read()
@@ -31,11 +31,19 @@ def loop():
 
         elif event == '-INGRESAR_TICKET-':
             ingresar_ticket.start()
-            #window["-TABLA_EXPEDIENTE-"].update(ingresar_expediente_handler.leer_archivo())
+            window["-TABLA_TICKETS-"].update(ticket.leer_tickets())
 
         elif event == '-EDITAR-TICKET-':
             print("editar ticket")
             #editar_ticket.start()
+            
+        elif event == 'Eliminar seleccion' and window['-TABLA_TICKETS-'].get():
+            if values["-TABLA_TICKETS-"]:
+                print(f'Fila selecciona de la tabla: {values["-TABLA_TICKETS-"][0]}')
+                ticket_seleccionado = window["-TABLA_TICKETS-"].get()[values["-TABLA_TICKETS-"][0]]
+                print(ticket_seleccionado)
+                ticket.eliminar_ticket(ticket_seleccionado[0])
+                window["-TABLA_TICKETS-"].update(ticket.leer_tickets())
 
     return window
 

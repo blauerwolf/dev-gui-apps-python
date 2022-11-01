@@ -9,7 +9,7 @@ def build():
     categorias = [ "Creado", "En curso", "Cerrado", "Finalizado"]
     
     layout = [
-        [sg.Text('Cargar incidente',font=(font_name,20))],
+        [sg.Text('Cargar incidente',font=(font_name,16))],
         [sg.HorizontalSeparator()],
         [sg.Text('id', size=(15,1)), sg.Spin(list(range(99999)), size=(10, 1), key="-ID-")],
         [sg.Text('Descripción', size=(15,1)), sg.Input(size=(30,1),key='-DESCRIPCION-')],

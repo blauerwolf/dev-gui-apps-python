@@ -7,12 +7,12 @@ from src.handlers.config import Base, db, session
 class Ticket(Base):
     __tablename__ = 'ticket'   
     id = Column(Integer, primary_key=True, autoincrement=True)
-    descripcion = Column(Text, nullable=False, unique=True)
+    descripcion = Column(Text, nullable=False)
     contacto = Column(String(255), nullable=False)
     estado = Column(String(255), nullable=False)
     created = Column(DateTime, nullable=False, server_default=func.now())
-    updated = Column(TIMESTAMP, onupdate=func.now())
-    deleted = Column(DateTime, nullable=True)
+    updated = Column(TIMESTAMP, onupdate=func.now(), default=None)
+    deleted = Column(DateTime, nullable=True, default=None)
     usuario_id = Column(Integer, ForeignKey("usuario.id"), nullable=False)
 
     @classmethod
@@ -20,6 +20,7 @@ class Ticket(Base):
         obj = cls(**kw)
         session.add(obj)
         session.commit()
+        return obj
 
     def actualizar_estado(self, estado):
         self.estado = estado
@@ -30,23 +31,40 @@ class Ticket(Base):
         self.contacto = contacto 
         self.estado = estado 
         session.commit()
+        
+    def borrar_ticket(self):
+        self.deleted = func.now()
+        session.commit()
+        
+    @classmethod
+    def buscar(cls):
+        return session.query(cls).filter_by(deleted=None).all()
+        
+
 
 def create():
     Base.metadata.create_all(db)
 
 def leer_tickets():
-    print("tickets")
-    tickets = []
-    t = session.query(Ticket).filter_by(Ticket.deleted != None).all()
+    tks = []
+    
+    t = Ticket.buscar()
+
     for row in t:
-        print("row")
+        tks.append([row.id, row.descripcion, row.contacto, row.usuario_id, row.estado])
+    return tks
 
 def crear_ticket(ticket):
-    print("Nuevo ticket")
-    tk = Ticket.create(ticket.descripcion,
-                        ticket.contacto,
-                        ticket.estado,
-                        ticket.usuario_id)
+
+    tk = Ticket.create(descripcion=ticket['-DESCRIPCION-'],
+                        contacto=ticket['-CONTACTO-'],
+                        estado=ticket['-ESTADO-'],
+                        usuario_id=ticket['-USUARIO-'])
+    return tk.id
+    
+def eliminar_ticket(id):
+    t = session.query(Ticket).filter_by(id=id).first()
+    t.borrar_ticket()
 
 def actualizar_estado():
     print("Actualizar estado")

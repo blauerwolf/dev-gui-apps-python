@@ -35,7 +35,6 @@ def loop():
                 break
 
     return window
-    #window["-TABLA_EXPEDIENTE-"].update(ingresar_expediente
 
 
 def iniciar_sesion(usuario, password):
