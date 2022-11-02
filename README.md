@@ -55,8 +55,8 @@ python3 run.py
 ![Imagen de formulario de carga de datos](src/static/screenshot-03.png)
 ![Imagen de ventana 'acerca de'](src/static/screenshot-04.png)
 
-
+### Acceso a la app
 >Los usuarios por default son:  
--admin
--operador
--consulta
+- admin  
+- operador  
+- consulta  
