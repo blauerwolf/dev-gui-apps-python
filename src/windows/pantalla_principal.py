@@ -29,9 +29,8 @@ def build():
                   justification="c",
                   headings=[" ID ", "     Descripcion     ", "   Contacto   ", " Usuario ", " Estado "],
                   row_height=20, num_rows=10, header_background_color="#FF8000", right_click_menu=[[],["Editar ticket", "Eliminar seleccion"]])],
-        [sg.Text("""Seleccionar un elemento de la tabla y dar click derecho permite generar eventos especiales que permitiría
-por ejemplo eliminar un expediente. VER EL MENSAJE DE LA CONSOLA PARA MAS INFORMACIÓN.""")]
+        [sg.Text("""Seleccionar un elemento de la tabla y dar click con el botón secundario del mouse para editar o eliminar el incidente.""")]
     ]
-    window = sg.Window('Sistema Integral v3.5', layout=layout, resizable=True, finalize=True)
+    window = sg.Window('Ticket Killer v3.5', layout=layout, resizable=True, finalize=True)
 
     return window
