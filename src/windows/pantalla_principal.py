@@ -13,9 +13,8 @@ def build():
     font16 = ("Calibri Italic", 16)
 
 
-    menu_def = [['&Archivo', ['!&Abrir', '&Guardar::guardarkey', '---', '&Propiedades', '&Salir']],
-            ['!&Edit', ['!&Paste', ['Special', 'Normal', ], 'Undo'], ],
-            ['&Ventanas nuevas', ['Ventana &1', 'Ventana &2']],
+    menu_def = [['&Archivo', ['&Cargar Tk', '!&Guardar::guardarkey', '---', '&Salir']],
+            ['!&Edición', ['!&Paste', ['Special', 'Normal', ], 'Undo'], ],
             ['&Ayuda', '&Acerca de...'], ]
 
     layout = [

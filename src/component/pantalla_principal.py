@@ -2,6 +2,7 @@ import PySimpleGUI as sg
 from src.windows import pantalla_principal
 from src.component import ingresar_ticket
 from src.component import editar_ticket
+from src.component import acerca
 from src.handlers.models import ticket
 
 
@@ -29,6 +30,14 @@ def loop():
             break
 
         elif event == '-INGRESAR_TICKET-':
+            ingresar_ticket.start()
+            window["-TABLA_TICKETS-"].update(ticket.leer_tickets())
+            
+        elif event == 'Acerca de...':
+            print("Acerca de")
+            acerca.start()
+            
+        elif event == 'Cargar Tk':
             ingresar_ticket.start()
             window["-TABLA_TICKETS-"].update(ticket.leer_tickets())
   

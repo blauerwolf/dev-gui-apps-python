@@ -9,8 +9,9 @@ def start():
     """
     Esta función es con la cual se comienza eligiendo cuál ser la primera ventana.
     """
-    login.start()
-    pantalla_principal.start()
+    resultado=login.start()
+    if (resultado):
+    	pantalla_principal.start()
     
     
 

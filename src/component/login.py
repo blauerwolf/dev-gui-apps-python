@@ -2,12 +2,15 @@ import PySimpleGUI as sg
 from src.handlers.models.usuario import *
 from src.windows import login
 
+estados = { "autenticado" : False }
+
 def start():
     """
     Lanza la ejecución de la ventana
     """
     window = loop()
     window.close()
+    return estados["autenticado"]
 
     
 def loop():
@@ -24,14 +27,13 @@ def loop():
         if event in (sg.WINDOW_CLOSED, "Exit", "-exit-", "Salir"):
             break
         elif event == sg.WIN_CLOSED or event == 'close':
-            print("cierra")
             break
         elif event == '-PANTALLA_PRINCIPAL-':
-            print("hola")
             break
         elif event=='login':
             respuesta = iniciar_sesion(values['user'], values['password'])
             if (respuesta): 
+                estados["autenticado"] = True
                 break
 
     return window
