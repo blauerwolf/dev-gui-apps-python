@@ -2,6 +2,7 @@ import PySimpleGUI as sg
 from src.handlers.models.usuario import *
 from src.windows import login
 
+# Diccionario global para verificar login exitoso
 estados = { "autenticado" : False }
 
 def start():

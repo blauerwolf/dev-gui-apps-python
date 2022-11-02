@@ -41,9 +41,9 @@ class Ticket(Base):
         return session.query(cls).filter_by(deleted=None).all()
         
 
-
 def create():
     Base.metadata.create_all(db)
+
 
 def leer_tickets():
     tks = []
@@ -65,13 +65,17 @@ def crear_ticket(ticket):
                         estado=ticket['-ESTADO-'],
                         usuario_id=ticket['-USUARIO-'])
     return tk.id
+
     
 def eliminar_ticket(id):
     t = session.query(Ticket).filter_by(id=id).first()
     t.borrar_ticket()
 
-def actualizar_estado():
-    print("Actualizar estado")
+
+def actualizar_estado(id, estado):
+    t = session.query(Ticket).filter_by(id=id).first()
+    t.actualizar_estado(estado)
+
 
 def actualizar_ticket(ticket):
     t = session.query(Ticket).filter_by(id=ticket['-ID-']).first()

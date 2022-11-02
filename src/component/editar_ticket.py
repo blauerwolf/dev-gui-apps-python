@@ -17,7 +17,6 @@ def loop(ticket_id):
     Loop de la ventana de menú que capta los eventos al apretar las opciones
     """
     
-
     window = editar_ticket.build(ticket_id)
 
     while True:
@@ -27,9 +26,7 @@ def loop(ticket_id):
             break
 
         elif event == '-GUARDAR-':
-            print(values)
             ticket.actualizar_ticket(values)
-            #ingresar_expediente_handler.agregar_expediente(values)
             break
 
     return window

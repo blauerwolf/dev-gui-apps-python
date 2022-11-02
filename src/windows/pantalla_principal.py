@@ -27,7 +27,6 @@ def build():
         ],
         [sg.Table(values=[["-", "-", "-", "-", "-"]], key="-TABLA_TICKETS-",
                   justification="c",
-                  #cols_justification=['c', 'l', 'c', 'c', 'c'],
                   headings=[" ID ", "     Descripcion     ", "   Contacto   ", " Usuario ", " Estado "],
                   row_height=20, num_rows=10, header_background_color="#FF8000", right_click_menu=[[],["Editar ticket", "Eliminar seleccion"]])],
         [sg.Text("""Seleccionar un elemento de la tabla y dar click derecho permite generar eventos especiales que permitiría

@@ -34,7 +34,6 @@ def loop():
             window["-TABLA_TICKETS-"].update(ticket.leer_tickets())
             
         elif event == 'Acerca de...':
-            print("Acerca de")
             acerca.start()
             
         elif event == 'Cargar Tk':
