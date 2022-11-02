@@ -50,5 +50,9 @@ pip3 install -r requirements.txt
 ```
 python3 run.py
 ```
+![Imagen de login](src/static/screenshot-01.png)
+![Imagen de pantalla principal](src/static/screenshot-02.png)
+![Imagen de formulario de carga de datos](src/static/screenshot-03.png)
+![Imagen de ventana 'acerca de'](src/static/screenshot-04.png)
 
 
