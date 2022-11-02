@@ -26,8 +26,12 @@ def loop():
             break
 
         elif event == '-GUARDAR-':
-            tk_id = ticket.crear_ticket(values)
-            break
+            
+            if (values['-DESCRIPCION-'] == "" or values['-CONTACTO-'] == "" or values['-USUARIO-'] == "" or values['-ESTADO-'] == ""):
+                sg.popup_error("Teneś que completar todos los campos.", title="Error")
+            else:
+            	tk_id = ticket.crear_ticket(values)
+            	break
 
     return window
 
