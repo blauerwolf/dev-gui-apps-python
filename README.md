@@ -56,3 +56,7 @@ python3 run.py
 ![Imagen de ventana 'acerca de'](src/static/screenshot-04.png)
 
 
+>Los usuarios por default son:  
+-admin
+-operador
+-consulta
