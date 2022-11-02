@@ -14,6 +14,7 @@ class Ticket(Base):
     updated = Column(TIMESTAMP, onupdate=func.now(), default=None)
     deleted = Column(DateTime, nullable=True, default=None)
     usuario_id = Column(Integer, ForeignKey("usuario.id"), nullable=False)
+    parent = relationship("Usuario", back_populates="children")
 
     @classmethod
     def create(cls, **kw):
@@ -26,10 +27,11 @@ class Ticket(Base):
         self.estado = estado
         session.commit()
 
-    def actualizar_ticket(self, descripcion, contacto, estado):
+    def actualizar_ticket(self, descripcion, contacto, estado, usuario_id):
         self.descripcion = descripcion 
         self.contacto = contacto 
         self.estado = estado 
+        self.usuario_id = usuario_id
         session.commit()
         
     def borrar_ticket(self):
@@ -51,7 +53,7 @@ def leer_tickets():
     t = Ticket.buscar_todos()
 
     for row in t:
-        tks.append([row.id, row.descripcion, row.contacto, row.usuario_id, row.estado])
+        tks.append([row.id, row.descripcion, row.contacto, row.parent.nombre, row.estado])
     return tks
     
 def buscar(ticket_id):
@@ -81,7 +83,8 @@ def actualizar_ticket(ticket):
     t = session.query(Ticket).filter_by(id=ticket['-ID-']).first()
     t.actualizar_ticket(descripcion=ticket['-DESCRIPCION-'],
                         contacto=ticket['-CONTACTO-'],
-                        estado=ticket['-ESTADO-'])
+                        estado=ticket['-ESTADO-'],
+                        usuario_id=ticket['-USUARIO-'])
 
 
 create()

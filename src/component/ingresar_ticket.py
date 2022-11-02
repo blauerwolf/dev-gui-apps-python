@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
 from src.windows import ingresar_ticket
 from src.handlers.models import ticket
+from src.handlers.models import usuario
 
 
 def start():
@@ -16,7 +17,6 @@ def loop():
     Loop de la ventana de menú que capta los eventos al apretar las opciones
     """
     
-
     window = ingresar_ticket.build()
 
     while True:
@@ -30,8 +30,10 @@ def loop():
             if (values['-DESCRIPCION-'] == "" or values['-CONTACTO-'] == "" or values['-USUARIO-'] == "" or values['-ESTADO-'] == ""):
                 sg.popup_error("Teneś que completar todos los campos.", title="Error")
             else:
-            	tk_id = ticket.crear_ticket(values)
-            	break
+                user_id = usuario.buscar_usuario(values['-USUARIO-']).id
+                values["-USUARIO-"] = user_id
+                tk_id = ticket.crear_ticket(values)
+                break
 
     return window
 

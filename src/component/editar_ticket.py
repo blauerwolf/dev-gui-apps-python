@@ -2,6 +2,7 @@ import PySimpleGUI as sg
 from src.windows import ingresar_ticket
 from src.windows import editar_ticket
 from src.handlers.models import ticket
+from src.handlers.models import usuario
 
 
 def start(ticket_id):
@@ -29,6 +30,8 @@ def loop(ticket_id):
             if (values['-DESCRIPCION-'] == "" or values['-CONTACTO-'] == "" or values['-USUARIO-'] == "" or values['-ESTADO-'] == ""):
                 sg.popup_error("Teneś que completar todos los campos.", title="Error")
             else:
+                user_id = usuario.buscar_usuario(values['-USUARIO-']).id
+                values["-USUARIO-"] = user_id
                 ticket.actualizar_ticket(values)
                 break
 

@@ -11,8 +11,8 @@ def build():
     sg.theme('LightBlue3')
 
     font16 = ("Calibri Italic", 16)
-
-
+    
+    
     menu_def = [['&Archivo', ['&Cargar Tk', '!&Guardar::guardarkey', '---', '&Salir']],
             ['!&Edición', ['!&Paste', ['Special', 'Normal', ], 'Undo'], ],
             ['&Ayuda', '&Acerca de...'], ]

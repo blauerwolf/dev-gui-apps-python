@@ -15,7 +15,7 @@ def build():
     layout2 = [
         [sg.Text('Ticket Killer', size=(100,1), justification='left', font=(font_name,16))],
         [sg.HorizontalSeparator()],
-        [sg.Text('Ticket Killer es un sistema \nde registro de incidencias\nultraligero, portable\ny fácil de usar.', size=(100,15), justification='left')],
+        [sg.Text('Ticket Killer es un sistema \nde registro de incidencias\nultraligero, portable\ny fácil de usar.', size=(100,14), justification='left')],
         [sg.Column(boton_align_right, vertical_alignment='right', justification='right')]
     ]
     
