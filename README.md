@@ -60,3 +60,6 @@ python3 run.py
 - admin  
 - operador  
 - consulta  
+
+>La contraseña por default en todos los usuarios es:
+- password
