@@ -20,7 +20,7 @@ POSTGRES_PASSWORD=Mi_Password_Postgres
 Crear o editar un archivo .env en la carpeta raíz de la aplicación con las siguientes variables:
 ```
 DB_NAME = Nombre_de_DB
-DB_USERNAME = Mi_Usurio_Postgres
+DB_USERNAME = Mi_Usuario_Postgres
 DB_PASSWORD = Mi_Password_Postgres
 ```
 
